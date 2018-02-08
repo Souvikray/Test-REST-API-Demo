@@ -4,7 +4,7 @@ Below is the screenshot of the application where I have performed the Unit testi
 ![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot1.png?raw=true "Optional Title")
 
 Below is the screenshot of Travis CI dashboard where it shows the build is successful and it has passed the test.
-![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot1.png?raw=true "Optional Title")
+![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot5.png?raw=true "Optional Title")
 
 You can also check the log of Travis CI to see the test result.
 ![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot2.png?raw=true "Optional Title")
