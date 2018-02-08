@@ -7,7 +7,9 @@ Below is the screenshot of Travis CI dashboard where it shows the build is succe
 ![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot1.png?raw=true "Optional Title")
 
 You can also check the log of Travis CI to see the test result.
-![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot1.png?raw=true "Optional Title")
+![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot2.png?raw=true "Optional Title")
 
-![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot1.png?raw=true "Optional Title")
+![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot3.png?raw=true "Optional Title")
 
+Additionally you can also check the config that Travis followed to excute the tests.
+![Alt text](https://github.com/Souvikray/Test-REST-API-Demo/blob/master/screenshot4.png?raw=true "Optional Title")
