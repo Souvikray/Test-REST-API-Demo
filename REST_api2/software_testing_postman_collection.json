@@ -1,0 +1,377 @@
+{
+	"info": {
+		"name": "Software Testing copy",
+		"_postman_id": "34debdef-c227-eb06-895f-97100b39ef92",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "227cd48c-4217-4cf3-81c0-d879fad01ec1",
+						"type": "text/javascript",
+						"exec": [
+							"postman.clearEnvironmentVariable(\"access_token\");",
+							"",
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"User created successfully\"] = jsonData.message === \"User created successfully\";",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"souvik3\",\n\t\"password\": \"9876\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7003f19-8a03-42f2-8a86-7719943b4a0c",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token)",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"souvik3\",\n\t\"password\": \"9876\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/auth",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/store/test_store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34f48f83-0fc2-4a8b-aa80-74e979cf5401",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\")",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTgwMDM2MjAsImlhdCI6MTUxODAwMzMyMCwibmJmIjoxNTE4MDAzMzIwLCJpZGVudGl0eSI6NH0.NR9Ryo7pb5oxpeHMXwBK3bQzunEYSB7IUc-GsTDlow4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"souvik3\",\n\t\"password\": \"9876\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/store/test_store",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"store",
+						"test_store"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/item/test_item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8bcd3f4-add6-4785-8389-7d2159612a20",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\")",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\"",
+							"",
+							"tests[\"Item name is returned\"] = jsonData.name === \"test_item\"",
+							"",
+							"tests[\"Item price is returned\"] = jsonData.price === 12.99",
+							"",
+							"tests[\"Successful POST request\"] = ResponseCode.code === 201"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTgwMDM2MjAsImlhdCI6MTUxODAwMzMyMCwibmJmIjoxNTE4MDAzMzIwLCJpZGVudGl0eSI6NH0.NR9Ryo7pb5oxpeHMXwBK3bQzunEYSB7IUc-GsTDlow4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"price\": 12.99,\n\t\"store_id\": 1\n}"
+				},
+				"url": {
+					"raw": "{{url}}/item/test_item",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"item",
+						"test_item"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/item/test_item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c06f7e40-acb7-4364-86ce-7b4ddba93515",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\")",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT {{access_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"souvik3\",\n\t\"password\": \"9876\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/item/test_item",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"item",
+						"test_item"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/stores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34f48f83-0fc2-4a8b-aa80-74e979cf5401",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\")",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTgwMDM2MjAsImlhdCI6MTUxODAwMzMyMCwibmJmIjoxNTE4MDAzMzIwLCJpZGVudGl0eSI6NH0.NR9Ryo7pb5oxpeHMXwBK3bQzunEYSB7IUc-GsTDlow4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"souvik3\",\n\t\"password\": \"9876\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/item/test_item",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"item",
+						"test_item"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<item_name>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbcd9ad1-3d08-4334-9051-ec64ea265082",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time should be less than 200 ms\"] = responseTime < 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Content-Type is present in response\"] = postman.getResponseHeader(\"Content-Type\")",
+							"",
+							"tests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\"",
+							"",
+							"tests[\"Successful Delete request\"] = ResponseCode.code === 200",
+							"",
+							"tests[\"Store Deleted\"] = jsonData.message === \"Store deleted\"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTgwMDM2MjAsImlhdCI6MTUxODAwMzMyMCwibmJmIjoxNTE4MDAzMzIwLCJpZGVudGl0eSI6NH0.NR9Ryo7pb5oxpeHMXwBK3bQzunEYSB7IUc-GsTDlow4",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/item/test_item2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"item",
+						"test_item2"
+					]
+				},
+				"description": "Add a user"
+			},
+			"response": []
+		}
+	]
+}
