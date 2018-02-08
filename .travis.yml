@@ -1,0 +1,8 @@
+language: python
+python:
+ - "3.6"
+ - "nightly"
+install:
+ - "pip3 install pytest"
+ - "pip3 install -r REST_api2/requirements.txt"
+script: python3 -m pytest REST_api2/tests/
