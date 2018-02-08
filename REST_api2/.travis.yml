@@ -4,5 +4,5 @@ python:
  - "nightly"
 install:
  - "pip3 install pytest"
- - "pip3 install -r requirements.txt"
-script: python3 -m pytest tests/
+ - "pip3 install -r REST_api2/requirements.txt"
+script: python3 -m pytest REST_api2/tests/
